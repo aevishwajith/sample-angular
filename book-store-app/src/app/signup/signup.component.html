@@ -1,0 +1,64 @@
+<div class="topdown">
+    <form [formGroup]="signupform" (ngSubmit)="formsubmit(signupform.value)" novalidate>
+        <!-- Email input -->
+        <div class="col-md-8 offset-md-4">
+          <div class="form-outline mb-6 w-50">
+            <input type="text" 
+                   class="form-control input-sm" 
+                   id="inputsm"
+                   formControlName="Name"
+                   placeholder="Name"  ngModel/>
+                   <div *ngIf="formsubmited && f.Name.invalid" class="alert alert-danger">
+                      <div *ngIf="f.Name.errors.required">Email is required.</div>
+                      
+                     </div>
+                    
+                     <br>
+                  
+           
+          </div>
+        <br>
+
+        <div class="form-outline mb-6 w-50">
+          <input type="email" 
+                 class="form-control input-sm" 
+                 id="inputsm"
+                 formControlName="Email"
+                 placeholder="Email"  ngModel/>
+                 <div *ngIf="formsubmited && f.Email.invalid" class="alert alert-danger">
+                    <div *ngIf="f.Email.errors.required">Email is required.</div>
+                    <div *ngIf="f.Email.errors.email">Enter Correct Email format</div>
+                   </div>
+                  
+                   <br>
+                
+         
+        </div>
+      <br>
+        <!-- Password input -->
+        <div class="form-outline mb-6 w-50">
+          <input type="password" 
+                 class="form-control input-sm" 
+                 id="inputsm" 
+                 formControlName="Password"
+                 placeholder="Password" ngModel/>
+                 <div *ngIf="formsubmited && f.Password.invalid" class="alert alert-danger">
+                    <div *ngIf="f.Password.errors.required">Password is required.</div>
+                    
+                   </div>  
+               <br>
+        </div>
+      <br>
+        <!-- 2 column grid layout for inline styling -->
+      
+    
+        <!-- Submit button -->
+        <input type="submit" class="btn btn-primary btn-block mb-4 w-50" value="SignUp"><br><br>
+        <button (click)="reset()" class="btn btn-primary btn-block mb-4 w-50">Reset</button>
+    </div>
+        <!-- Register buttons -->
+        
+      </form>
+    </div>
+    
+    

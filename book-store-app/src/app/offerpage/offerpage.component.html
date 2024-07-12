@@ -1,0 +1,22 @@
+<div class="container" id="offers">
+    <h1 class="h1">Today's Offer</h1>
+    <hr>
+    <div class="row">
+      <div class="col-md-3" *ngFor="let image of images">
+      <div class="card" style="width: 18rem;margin-top: 3%;">
+        <img class="card-img-top" style="max-height: 100px;" src={{image.img}} alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">Card title</h5>
+          <p class="card-text">{{image.desc}}</p>
+          <a href="#" class="btn btn-primary">Go somewhere</a>
+        </div>
+      </div>
+      </div>
+     
+    </div>
+  </div>
+  <div class="navbar navbar-inverse navbar-fixed-bottom">
+  <div class="container">
+  <p class="navbar-text">© All-In-One.com| 86547887</p>
+  </div>
+ </div>

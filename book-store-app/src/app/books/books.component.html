@@ -1,0 +1,58 @@
+
+<div class="row">
+    <!-- <div class="row-md-12"> -->
+      <div style="background-color: rgb(64, 66, 70); color: aliceblue;height:425px;" class="col-md-2" #sidebar>
+        <div>
+          <p>Price Range</p>
+          <hr>
+          <div class="form-check">
+            <input  class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" value="500-1000" [(ngModel)]="pricerange" (click)="filteredItems('100-500')">
+            <label class="form-check-label">
+              100-500
+            </label>
+          </div>
+          <div class="form-check">
+            <input  class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" value="1000-1500" [(ngModel)]="pricerange" (click)="filteredItems('500-1000')">
+            <label class="form-check-label" >
+              500-1000
+            </label>
+          </div>
+          <div class="form-check">
+            <input  class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" value="1500-2000" [(ngModel)]="pricerange" (click)="filteredItems('1000-2000')">
+            <label class="form-check-label">
+              1000-2000
+            </label>
+          </div>
+          <button (click)="getBookItems()" type="button" class="btn btn-primary">Remove Filter</button>
+        </div>
+      </div>
+      <div  class="col-md-10" style="
+      background-color: #fcfdfc;
+      color: black;
+  " >
+    
+        <div class="row" #maincontent>
+          <div class="card-deck col-md-4" *ngFor="let bimage of bookimages" style="margin-top:3%;">
+            <div class="card d-flex flex-fill">
+          
+            <img class="card-img-top" src={{bimage.img}} alt="Card image cap" style="height: 200px;">
+            <div class="card-body">
+              <h5 class="card-title">{{bimage.company}}</h5>
+              <p class="card-text">{{bimage.price | currency:'INR'}}</p>
+              <a class="btn btn-primary" (click)="addToCart(bimage)">ORDER</a>
+              <button style="margin-left: 12px;width: 22px;height: 22px;text-align: center;" class="btn btn-danger" (click)="decreaseqty(bimage)">-</button>
+                <input style="width:20px;margin-left: 5px;text-align: center;" [value]="bimage.value"/>
+              <button style="margin-left: 5px;width: 22px;height: 22px;text-align: center;" class="btn btn-success" (click)=increaseqty(bimage)>+</button>
+            </div>
+          
+          </div>
+          </div>
+         
+        </div>
+        
+      </div>
+    <!-- </div> -->
+    
+  </div>
+
+

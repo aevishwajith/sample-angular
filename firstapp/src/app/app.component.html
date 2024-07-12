@@ -1,0 +1,12 @@
+
+<input type="text" [(ngModel)]="itemname">
+<button type="button" (click)="submititem()">ENTER</button>
+<h3 *ngIf="nameFromDemo">name from demoform:{{nameFromDemo}}</h3>
+<app-demo></app-demo>
+<br>
+<br>
+<app-demoform [item]="myitem" (nameEvent)="getname($event)"></app-demoform>
+<hr>
+<br>
+<app-todolist></app-todolist>
+<router-outlet></router-outlet>

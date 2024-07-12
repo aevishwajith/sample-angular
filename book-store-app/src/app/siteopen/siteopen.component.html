@@ -1,0 +1,23 @@
+<!--div style="width: 100%;height: 100%;" [class]="(selectedTab=='login' || selectedTab=='signup')?'background-img':''">-->
+<div>
+
+    <ul class="nav justify-content" style="background-color:black;font-size:15px;">
+      <li class="nav-item" style="margin-top: 9px;">
+        <h2 class="h2" style="color: white;margin-left: 5px;font-family:cursive;">All-In-One</h2>
+      </li>
+     
+      
+        <li class="nav-item">
+          <a [style.background-color]="activatedloginbg"  [ngClass]="{'logintip': selectedTab == 'login'}"  style="color: blue;cursor: pointer;" (click)="login()">Login</a>
+        </li>
+        <li class="nav-item">
+          <a [style.background-color]="activatedsignupbg" [ngClass]="{'signuptip': selectedTab == 'signup'}"   style="color: blue;cursor: pointer;" (click)="signup()">Sign up</a>
+        </li>
+       
+      </ul>
+      
+    </div>
+<app-imageslide  *ngIf=imgshow></app-imageslide>
+<app-login (userlogin)="userloginfunc($event)" *ngIf=logshow></app-login>
+<app-signup *ngIf=signshow></app-signup>
+  <!--/div>-->

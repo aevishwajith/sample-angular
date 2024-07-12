@@ -1,0 +1,61 @@
+<h1 *ngIf="item">Today item{{item}}</h1>
+<form [formGroup]="myform" (ngSubmit)="formsubmit(mymodalformdata)" novalidate> 
+    <input 
+                formControlName="name"
+                id="name" 
+                type="text"
+                placeholder="Name" 
+                class="form-control"/>
+                <div *ngIf="formsubmited && f.name.invalid" class="alert alert-danger">
+                    <div *ngIf="f.name.errors.required">Name is required.</div>
+                    
+                   </div>  
+                <br>
+                
+    <input 
+                formControlName="email"
+                id="email" 
+                type="text" 
+                placeholder="Email"
+                class="form-control"/>   
+                <div *ngIf="formsubmited && f.email.invalid" class="alert alert-danger">
+                    <div *ngIf="f.email.errors.required">Email is required.</div>
+                    
+                   </div>  
+               <br>
+    <input 
+               formControlName="passwd"
+               id="passwd" 
+               type="password" 
+               placeholder="Password"
+               class="form-control"/> 
+               <div *ngIf="formsubmited && f.passwd.invalid" class="alert alert-danger">
+                <div *ngIf="f.passwd.errors.required">password is required.</div>
+                <div *ngIf="f.passwd.errors.minlength">passwd should be 3 character.</div>
+               </div>
+              
+               <br>
+    <input type="submit" value="submit" />                             
+
+</form>
+<ng-template #mymodalformdata let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title">Form data</h4>
+      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">×</span>
+      </button>
+    </div>
+    <div class="modal-body">
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">{{formdata.name}}</li>
+            <li class="list-group-item">{{formdata.email}}</li>
+            <li class="list-group-item">{{formdata.password}}</li>
+            
+          </ul>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Ok</button>
+    </div>
+    <button type="button" class="btn btn-outline-dark">Submit</button>
+  </ng-template>
+

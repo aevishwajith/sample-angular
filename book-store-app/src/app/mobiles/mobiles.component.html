@@ -1,0 +1,56 @@
+
+    <div class="row">
+        
+          <div id="myDiv1"  style="background-color:rgb(81, 81, 82);color: #f0f8ff;max-height: 100%;"   class="col-md-2" #sidebar>
+            <div>
+              <p>Price Range</p>
+              <hr>
+              <div class="form-check">
+                <input  class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" value="500-1000" [(ngModel)]="pricerange" (click)="filteredItems('5000-10000')">
+                <label class="form-check-label">
+                  5000-10000
+                </label>
+              </div>
+              <div class="form-check">
+                <input  class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" value="1000-1500" [(ngModel)]="pricerange" (click)="filteredItems('10000-15000')">
+                <label class="form-check-label" >
+                  10000-15000
+                </label>
+              </div>
+              <div class="form-check">
+                <input  class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" value="1500-2000" [(ngModel)]="pricerange" (click)="filteredItems('15000-25000')">
+                <label class="form-check-label">
+                  15000-25000
+                </label>
+              </div>
+              <button (click)="getMobileItems()" type="button" class="btn btn-primary">Remove Filter</button>
+            </div>
+          </div>
+          <div  class="col-md-10" id="myDiv2" style="
+          background-color: #fcfdfc;
+          color: black;
+      ">
+        
+            <div class="row" #maincontent>
+              
+              <div class="card-deck col-md-4" *ngFor="let mimage of mobileimages" style="margin-top: 3%;">
+                <div class="card d-flex flex-fill">
+                <img class="card-img-top" src={{mimage.img}} alt="Card image cap" style="height: 200px;">
+                <div class="card-body">
+                  <h5 class="card-title">{{mimage.company}}</h5>
+                  <p class="card-text">{{mimage.price | currency:'INR'}}</p>
+                  <a (click)="addToCart(mimage)" class="btn btn-primary">ORDER</a>
+                  <button style="margin-left: 12px;width: 22px;height: 22px;text-align: center;" class="btn btn-danger" (click)="decreaseqty(mimage)">-</button>
+                <input style="width:20px;margin-left: 5px;text-align: center;" [value]="mimage.value"/>
+              <button style="margin-left: 5px;width: 22px;height: 22px;text-align: center;" class="btn btn-success" (click)=increaseqty(mimage)>+</button>
+                </div>
+                </div>
+              </div>
+              
+             
+            </div>
+            
+          </div>
+        
+      </div>
+    
